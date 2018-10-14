@@ -1,91 +1,57 @@
 ﻿using System;
-using TestForVacancyProject;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Windows;
+
 
 namespace TestForVacancyProject.Tests
 {
     [TestClass]
-    public class TriangleAreaTest
+    public class MainClassTest
     {
-        TriangleArea triangleArea = new TriangleArea(3, 4, 5);
+        List<object> paramList = new List<object>();
+        BaseAreaCounter BaseArea = new BaseAreaCounter();
+
         [TestMethod]
-        public void TriangleArea_345_6returned()
+        public void TriangleAreaTest()
         {
-            //Arrange
-            double expected = 6;
+            double a = 5;
+            double b = 6.5;
+            double c = 7;
 
-            //Act
-            var actual = triangleArea.Area();
+            paramList.Add(a);
+            paramList.Add(b);
+            paramList.Add(c);
 
-            //Assert
-            Assert.AreEqual(expected, actual);
-        }
-
-        public void TrianglePerimeter_345_12returned()
-        {
-            double expected = 12;
-
-            var actual = triangleArea.Perimeter();
+            var actual = BaseArea.Count(paramList);
+            var expected = 15.6;
 
             Assert.AreEqual(expected, actual);
+            paramList.Clear();
         }
-    }
-
-    [TestClass]
-    public class RoundAreaTest
-    {
-        RoundArea RoundArea = new RoundArea(5);
         [TestMethod]
-        public void RoundArea_5_78returned()
+        public void RoundAreaTest()
         {
-            //Arrange
-            double expected = 78.54;
+            double radius = 6;
+            paramList.Add(radius);
 
-            //Act
-            var actual = RoundArea.Area();
-
-            //Assert
-            Assert.AreEqual(expected, actual);
-        }
-
-        public void RoundPerimeter_5_31returned()
-        {
-            double expected = 31.41;
-
-            var actual = RoundArea.Perimeter();
+            var actual = BaseArea.Count(paramList);
+            var expected = 113.09;
 
             Assert.AreEqual(expected, actual);
+            paramList.Clear();
         }
-    }
 
-    [TestClass]
-    public class AnyAreaTest
-    {        
-        AnyArea AnyArea = new AnyArea(new Point[]{new Point(1, 1),
-                new Point(2, 3),
-                new Point(5, 4),
-                new Point(4, 2) });
         [TestMethod]
-        public void AnyArea_Points_5returned()
-        {      
-            //Arrange
-            double expected = 5;
-
-            //Act
-            var actual = AnyArea.Area();
-
-            //Assert
-            Assert.AreEqual(expected, actual);
-        }
-
-        public void AnyPerimeter_Points_10returned()
+        public void AnyAreaTest()
         {
-            double expected = 10.8;
+            Point[] dots = new[] { new Point(5, 1), new Point(0, 1), new Point(8, 8) };
+            paramList.Add(dots);
 
-            var actual = AnyArea.Perimeter();
-
+            var expected = 17.5;
+            var actual = BaseArea.Count(paramList);
             Assert.AreEqual(expected, actual);
+            paramList.Clear();
         }
     }
 }
