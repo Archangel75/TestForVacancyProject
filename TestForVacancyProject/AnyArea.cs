@@ -7,14 +7,18 @@ using System.Windows;
 
 namespace TestForVacancyProject
 {
-    public class AnyArea : BaseAreaCounter, IAreaCounter
+    public class AnyArea :  IAreaCounter
     {
+        private Point[] dots = null;
         ///<summary>
         ///<para> Возвращает площадь произвольной фигуры.</para>
         ///</summary>
-        public double Area()
+        public double Area(List<object> paramList)
         {
-            double area = default(double);
+            Extract(paramList);
+
+            double area = 0;
+
 
             for (int i = 0; i < dots.Length - 1; i++)
             {
@@ -24,5 +28,18 @@ namespace TestForVacancyProject
 
             return Math.Round(Math.Abs(area / 2), 2);
         }
+
+        public void Extract(List<object> paramList)
+        {
+            try
+            {
+                dots = paramList.First() as Point[];
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
     }
 }

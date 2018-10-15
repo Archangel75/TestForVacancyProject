@@ -42,10 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnyArea.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="MainClass.cs" />
     <Compile Include="IAreaCounter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoandArea.cs" />
+    <Compile Include="RoundArea.cs" />
     <Compile Include="TriangleArea.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

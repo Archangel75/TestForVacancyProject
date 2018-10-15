@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace TestForVacancyProject
 {
-    interface IAreaCounter
+    public interface IAreaCounter
     {
-        double Area();
+        double Area(List<object> paramList);
+        void Extract(List<object> paramList);
     }
 }
