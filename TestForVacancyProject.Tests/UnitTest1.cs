@@ -29,6 +29,7 @@ namespace TestForVacancyProject.Tests
             Assert.AreEqual(expected, actual);
             paramList.Clear();
         }
+
         [TestMethod]
         public void RoundAreaTest()
         {
@@ -50,6 +51,25 @@ namespace TestForVacancyProject.Tests
 
             var expected = 17.5;
             var actual = BaseArea.Count(paramList);
+            Assert.AreEqual(expected, actual);
+            paramList.Clear();
+        }
+
+        [TestMethod]
+        public void CheckRightTriangle()
+        {
+            double a = 7;
+            double b = 12.124;
+            double c = 14;
+
+            paramList.Add(a);
+            paramList.Add(b);
+            paramList.Add(c);
+            paramList.Add(true);
+
+            var actual = BaseArea.Count(paramList);
+            var expected = new Tuple<double, bool>(42.43, true);
+
             Assert.AreEqual(expected, actual);
             paramList.Clear();
         }

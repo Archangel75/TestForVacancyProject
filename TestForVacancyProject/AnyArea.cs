@@ -10,15 +10,26 @@ namespace TestForVacancyProject
     public class AnyArea :  IAreaCounter
     {
         private Point[] dots = null;
+        private bool needCheck = false;
+
+        public object Count(List<object> paramList)
+        {
+            object result = null;
+
+            if (paramList != null)
+                Extract(paramList);
+
+            result = Area();
+
+            return result;
+        }
+
         ///<summary>
         ///<para> Возвращает площадь произвольной фигуры.</para>
         ///</summary>
-        public double Area(List<object> paramList)
+        public double Area()
         {
-            Extract(paramList);
-
             double area = 0;
-
 
             for (int i = 0; i < dots.Length - 1; i++)
             {

@@ -8,7 +8,13 @@ namespace TestForVacancyProject
 {
     public interface IAreaCounter
     {
-        double Area(List<object> paramList);
+        object Count(List<object> paramList);
+        double Area();
         void Extract(List<object> paramList);
+    }
+
+    public interface IFactChecker
+    {
+        bool Check();
     }
 }
